@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  web:
+    build: ./porfolio  # Corrected to avoid redundant 'build' keyword
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=mysql://flaskapp:${MYSQL_PASSWORD}@mysql/flaskdb
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}  # Make sure MYSQL_PASSWORD is passed
+    depends_on:
+      - redis
+      - mysql
+    networks:
+      - mynetwork
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    networks:
+      - mynetwork
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      retries: 3
+      start_period: 30s
+
+  mysql:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: digitalart
+      MYSQL_USER: Tchagaka
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}  # Make sure MYSQL_PASSWORD is passed as an environment variable
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mynetwork
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 30s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  mysql-data:
+
+networks:
+  mynetwork:
+    driver: bridge

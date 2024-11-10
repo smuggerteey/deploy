@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light teal background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px; /* Responsive max width */
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #ffffff; /* White container */
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px; /* Adjusted for better hierarchy */
+            margin-bottom: 25px;
+            color: #003366; /* Dark blue heading */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between buttons */
+        }
+
+        button {
+            padding: 15px;
+            border: none; /* No border for a cleaner look */
+            border-radius: 10px;
+            background-color: #0056b3; /* Dark blue button */
+            color: white;
+            font-size: 18px; /* Slightly smaller font size for buttons */
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+            width: 100%;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Button shadow */
+        }
+
+        button:hover {
+            background-color: #004494; /* Medium blue on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px; /* Responsive heading size */
+            }
+
+            button {
+                font-size: 16px; /* Responsive button size */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Profile Page</h1>
+        <div class="button-container">
+            <button onclick="navigateTo('profile-info.html')">Profile Information</button>
+            <button onclick="navigateTo('edit-profile.html')">Edit Profile</button>
+            <button onclick="navigateTo('my-artworks.html')">My Artworks</button>
+            <button onclick="navigateTo('achievements.html')">Achievements</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page; // Navigate to the specified page
+        }
+    </script>
+
+</body>
+</html>

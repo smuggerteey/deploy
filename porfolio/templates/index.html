@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #007acc;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .link-list li {
+            margin: 10px 0;
+        }
+
+        .link {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #66b3ff;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .link:hover {
+            background-color: #55a3e0;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome</h1>
+        <ul class="link-list">
+            <li><a href="artdash.html" class="link">Artist Dashboard</a></li>
+            <li><a href="artwork.html" class="link">Artwork Details</a></li>
+            <li><a href="explore.html" class="link">Explore Page</a></li>
+            <li><a href="marketplace.html" class="link">Marketplace Page</a></li>
+            <li><a href="cart.html" class="link">Cart Page</a></li>
+            <li><a href="login.html" class="link">Messages Page</a></li>
+            <li><a href="registration.html" class="link">Virtual Gallery Page</a></li>
+            <li><a href="profile.html" class="link">Analytics Dashboard</a></li>
+            <li><a href="admin.html" class="link">Admin Dashboard</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

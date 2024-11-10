@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light teal background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Allow vertical stacking */
+            min-height: 100vh; /* Allow full height and scrolling if content is too large */
+            margin: 0;
+            padding: 0 20px; /* Padding for smaller screens */
+            box-sizing: border-box; /* Include padding in width/height calculations */
+            overflow-y: auto; /* Allow scrolling on the y-axis if content exceeds the height */
+        }
+
+        .container {
+            width: 100%; /* Full width on small screens */
+            max-width: 400px; /* Max width for larger screens */
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #ffffff; /* White container */
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            margin-top: 20px; /* Allow space for the container to expand */
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #003366; /* Dark blue text */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border: 1px solid #007acc; /* Soft blue border */
+            border-radius: 10px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #0056b3; /* Dark blue on focus */
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none; /* No border for a cleaner look */
+            border-radius: 10px;
+            margin: 12px 0;
+            background-color: #0056b3; /* Dark blue button */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #004494; /* Medium blue on hover */
+            transform: scale(1.02); /* Slightly enlarges button on hover */
+        }
+
+        .message {
+            color: green;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px; /* Smaller heading on small screens */
+            }
+
+            button {
+                font-size: 16px; /* Smaller button font on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Registration Page</h1>
+        <form id="registrationForm">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <input type="text" id="role" placeholder="Role" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">SIGN UP</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form data
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phone = document.getElementById('phone').value;
+            const role = document.getElementById('role').value;
+            const address = document.getElementById('address').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Simple client-side validation
+            if (password !== confirmPassword) {
+                document.getElementById('message').innerText = "Passwords do not match!";
+                return;
+            }
+
+            // Simulating a successful AJAX request
+            setTimeout(() => {
+                document.getElementById('message').innerText = "Registration successful!";
+                document.getElementById('registrationForm').reset(); // Reset the form
+            }, 500); // Simulate a delay of 500ms for AJAX request
+        });
+    </script>
+
+</body>
+</html>
